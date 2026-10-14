@@ -1,0 +1,66 @@
+$kind: http-request
+url: "{{ApiUrl}}/ExecuteTest"
+method: POST
+body:
+  type: json
+  content: "[{\r
+
+    \  \"target\": \"Robot-1\",\r
+
+    \  \"AutomationCommands\": [  \r
+
+    \  \t{\r
+
+    \  \t\t\"Version\" : \"1.0\",\r
+
+    \  \t\t\"Command\" : \"1\"\r
+
+    \  \t},\r
+
+    \    {\r
+
+    \  \t\t\"Command\" : \"2\"\r
+
+    \  \t},\r
+
+    \  \t{\r
+
+    \  \t\t\"Command\" : \"3\"\r
+
+    \  \t},\r
+
+    \  \t{\r
+
+    \  \t\t\"Command\" : \"4\"\r
+
+    \  \t},\r
+
+    \  \t{\r
+
+    \  \t\t\"Command\" : \"OK\"\r
+
+    \  \t}\r
+
+    \  ]\r
+
+    }]"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status test\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Validate Result\", function () {\r
+
+      \    var response = pm.response.json();\r
+
+      \    pm.expect(response.result.code).to.eql(0);\r
+
+      });"
+    language: text/javascript
+settings: {}
+order: 2000

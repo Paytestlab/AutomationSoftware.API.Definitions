@@ -1,0 +1,17 @@
+name: Production
+values:
+  - key: token
+    value: ''
+  - key: collectionName
+    value: ''
+  - key: collectionSchemaUrl
+    value: ''
+  - key: accessKey
+    value: ''
+  - key: workspaceId
+    value: ''
+  - key: collectionId
+    value: ''
+  - key: paytestHubUrl
+    value: ''
+color: 0

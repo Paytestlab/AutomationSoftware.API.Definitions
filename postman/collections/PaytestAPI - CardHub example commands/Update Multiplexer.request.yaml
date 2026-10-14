@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{ApiBaseUrl}}cardhub/multiplexer"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"Id\": {{MultiplexerId}},\r
+
+    \    \"MacAddress\": \"1407E00012B1\",\r
+
+    \    \"Target\": \"10.1.1.73\",\r
+
+    \    \"Name\":\"Beta\"\r
+
+    }"
+settings: {}
+order: 8000

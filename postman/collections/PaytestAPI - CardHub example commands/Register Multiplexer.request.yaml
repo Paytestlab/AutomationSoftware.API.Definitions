@@ -1,0 +1,16 @@
+$kind: http-request
+url: "{{ApiBaseUrl}}cardhub/register"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"MacAddress\": \"1407E00012B1\",\r
+
+    \    \"Target\": \"10.1.1.73\",\r
+
+    \    \"Name\": \"Alpha\"\r
+
+    }"
+settings: {}
+order: 7000

@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{ApiBaseUrl}}cardhub/multiplexer"
+method: DELETE
+body:
+  type: json
+  content: "{{MultiplexerId}}"
+settings: {}
+order: 9000

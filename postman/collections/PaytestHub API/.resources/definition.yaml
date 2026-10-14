@@ -1,0 +1,12 @@
+$kind: collection
+description: ""
+variables:
+  BEARER_TOKEN: ""
+  TEST_CASE_ID: ""
+  API_URL: ""
+  USERNAME: ""
+  PASSWORD: ""
+  TEST_SET_ID: ""
+  AGENT_ID: ""
+  ENVIRONMENT_ID: ""
+  TEST_RUN_ID: ""

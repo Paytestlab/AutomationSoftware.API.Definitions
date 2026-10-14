@@ -1,0 +1,8 @@
+$kind: http-request
+url: "{{ApiBaseUrl}}cardhub/scan"
+method: POST
+body:
+  type: json
+  content: "{{MultiplexerId}}"
+settings: {}
+order: 4000

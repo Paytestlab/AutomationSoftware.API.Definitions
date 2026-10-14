@@ -1,0 +1,24 @@
+$kind: http-request
+name: /result
+description: "Generated from cURL: curl -X 'GET' \\\r
+
+  \  'https://qa.paytesthub.cloud/api/app/agent/id?agentName=PTLNKRRO' \\\r
+
+  \  -H 'accept: text/plain' \\\r
+
+  \  -H 'RequestVerificationToken: CfDJ8FdC4gv_dEVFkZwy1GHiAKhtjs0F7aIJk3f9ZndIfYU6OtJ-If1kdETn66cNSx5VFpVHMbBhlfF2_xluX064pvbdWDvpKQzX-8wrVh_zHrEw2iKIPb71sOmMDLy9rI_KHak4T58H_se6REKCI_Al7lDij1Wtf6LM76Mr7q9KhdRv8JY-DahWZJvhYnzzMypA1Q' \\\r
+
+  \  -H 'X-Requested-With: XMLHttpRequest'"
+url: "{{API_URL}}/test-runs-api/result?id={{TEST_RUN_ID}}"
+method: GET
+headers:
+  accept: text/plain
+  RequestVerificationToken: CfDJ8FdC4gv_dEVFkZwy1GHiAKhtjs0F7aIJk3f9ZndIfYU6OtJ-If1kdETn66cNSx5VFpVHMbBhlfF2_xluX064pvbdWDvpKQzX-8wrVh_zHrEw2iKIPb71sOmMDLy9rI_KHak4T58H_se6REKCI_Al7lDij1Wtf6LM76Mr7q9KhdRv8JY-DahWZJvhYnzzMypA1Q
+  X-Requested-With: XMLHttpRequest
+queryParams:
+  id: "{{TEST_RUN_ID}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{BEARER_TOKEN}}"
+order: 5000

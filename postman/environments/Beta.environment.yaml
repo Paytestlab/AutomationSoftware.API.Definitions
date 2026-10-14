@@ -1,0 +1,21 @@
+name: Beta
+color: null
+values:
+  - key: token
+    value: ""
+    enabled: true
+  - key: collectionName
+    value: ""
+    enabled: true
+  - key: collectionSchemaUrl
+    value: ""
+    enabled: true
+  - key: accessKey
+    value: ""
+    enabled: true
+  - key: workspaceId
+    value: ""
+    enabled: true
+  - key: collectionId
+    value: ""
+    enabled: true

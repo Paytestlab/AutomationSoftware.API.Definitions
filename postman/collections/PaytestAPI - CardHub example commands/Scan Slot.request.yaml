@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{ApiBaseUrl}}cardhub/scan-slot"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"MultiplexerId\" : {{MultiplexerId}},\r
+
+    \    \"SlotIndex\" : 2\r
+
+    }"
+settings: {}
+order: 5000

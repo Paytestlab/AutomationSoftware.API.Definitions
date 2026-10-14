@@ -1,0 +1,14 @@
+$kind: http-request
+url: "{{ApiBaseUrl}}cardhub/release-slot"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"MultiplexerId\" : \"{{MultiplexerId}}\",\r
+
+    \    \"SlotIndex\" : 3\r
+
+    }"
+settings: {}
+order: 3000

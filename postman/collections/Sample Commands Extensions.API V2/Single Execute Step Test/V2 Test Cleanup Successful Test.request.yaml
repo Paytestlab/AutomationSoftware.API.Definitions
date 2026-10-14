@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{ApiUrl}}/TestCleanup"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: ""
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status test\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });"
+    language: text/javascript
+settings: {}
+order: 3000

@@ -1,9 +1,13 @@
 workspace:
   id: 556cfe91-a106-4d5a-884b-cb7ff8f05d39
+
+# Each entry here maps a local resource to one or more corresponding objects in Postman Cloud
+
 cloudResources:
   collections:
     ../postman/collections/PaytestAPI - CardHub example commands: 33286476-6b65200b-b501-4bb5-a47f-c12c26c6a782
     ../postman/collections/Sample Commands Extensions.API V2: 33286476-cf308807-e35e-418e-847b-31aa901d508d
+    ../postman/collections/PaytestHub API: 0e89d083-63b8-4c03-9010-4edf4dbee201
   environments:
     ../postman/environments/Production.environment.yaml: 33286476-28384176-8400-4748-b940-56a30b548e62
     ../postman/environments/Beta.environment.yaml: 33286476-d1c24d1e-bb59-4e3e-8df7-c48572714816
