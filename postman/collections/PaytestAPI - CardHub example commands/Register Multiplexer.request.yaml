@@ -1,0 +1,20 @@
+$kind: http-request
+description: |-
+  Registers a multiplexer with the card library.
+
+  Name: user-assigned name (used by the Probe extension's select --mux option). MacAddress: MAC address of the multiplexer. Target: IP address of the multiplexer.
+url: "{{ApiBaseUrl}}cardhub/register"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"MacAddress\": \"1407E00012B1\",\r
+
+    \    \"Target\": \"10.1.1.73\",\r
+
+    \    \"Name\": \"Alpha\"\r
+
+    }"
+settings: {}
+order: 7000

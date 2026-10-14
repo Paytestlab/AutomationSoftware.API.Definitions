@@ -1,0 +1,25 @@
+$kind: http-request
+name: /result
+description: |-
+  Returns the full result of the test run in TEST_RUN_ID: overall status (Successful, Failed, Cancelled), summaryDto counters and the items tree (test cases, steps, automation commands).
+
+  Works with both token scopes ("Execute / Abort" and "Get status only").
+url: "{{API_URL}}/test-runs-api/result?id={{TEST_RUN_ID}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Requested-With: XMLHttpRequest
+queryParams:
+  id: "{{TEST_RUN_ID}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{BEARER_TOKEN}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+    language: text/javascript
+order: 5000

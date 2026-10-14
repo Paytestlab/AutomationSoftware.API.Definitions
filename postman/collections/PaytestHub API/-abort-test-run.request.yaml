@@ -1,0 +1,31 @@
+$kind: http-request
+name: /abort-test-run
+description: |-
+  Aborts the queued or running test run in TEST_RUN_ID.
+
+  Requires an API token with scope "Execute / Abort". The abort is asynchronous: /status can return Executing for a few seconds before it switches to Cancelled.
+  Returns 409 Conflict if the run has already finished.
+url: "{{API_URL}}/test-runs-api/abort-test-run"
+method: PUT
+headers:
+  Accept: application/json
+  Content-Type: application/json
+  X-Requested-With: XMLHttpRequest
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{TEST_RUN_ID}}"
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{BEARER_TOKEN}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+    language: text/javascript
+order: 6000

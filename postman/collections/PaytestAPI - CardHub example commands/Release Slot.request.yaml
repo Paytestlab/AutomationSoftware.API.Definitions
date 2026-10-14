@@ -1,0 +1,16 @@
+$kind: http-request
+description: |-
+  Releases a reserved slot (SlotIndex) of the multiplexer in MultiplexerId so that its card is available again.
+url: "{{ApiBaseUrl}}cardhub/release-slot"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"MultiplexerId\" : \"{{MultiplexerId}}\",\r
+
+    \    \"SlotIndex\" : 3\r
+
+    }"
+settings: {}
+order: 3000

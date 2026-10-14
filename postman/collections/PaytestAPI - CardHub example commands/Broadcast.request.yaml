@@ -1,0 +1,7 @@
+$kind: http-request
+description: |-
+  Discovers multiplexers on the local network and returns the MAC address and target (IP address) of each one found. Use these values with Register Multiplexer.
+url: "{{ApiBaseUrl}}cardhub/broadcast"
+method: GET
+settings: {}
+order: 6000

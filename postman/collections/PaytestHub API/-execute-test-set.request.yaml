@@ -1,0 +1,44 @@
+$kind: http-request
+name: /execute-test-set
+description: |-
+  Queues a fully automated (mode A) test set for execution on the given agent and environment.
+
+  Requires an API token with scope "Execute / Abort". The returned testRunId is stored in TEST_RUN_ID.
+  Optional fields: testRunName, tags, executeRoutines, sendReport (report group ID), variables (overrides of variables defined on the test set) and correlationId.
+url: "{{API_URL}}/test-runs-api/execute-test-set"
+method: POST
+headers:
+  Accept: application/json
+  Content-Type: application/json
+  X-Requested-With: XMLHttpRequest
+body:
+  type: json
+  content: |-
+    {
+      "id": "{{TEST_SET_ID}}",
+      "agentId": "{{AGENT_ID}}",
+      "environmentId": "{{ENVIRONMENT_ID}}",
+      "testRunName": null,
+      "tags": null,
+      "executeRoutines": false,
+      "sendReport": null,
+      "variables": {},
+      "correlationId": null
+    }
+auth:
+  type: bearer
+  credentials:
+    token: "{{BEARER_TOKEN}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      const responseBody = pm.response.json();
+      if (responseBody.testRunId) {
+          pm.collectionVariables.set("TEST_RUN_ID", responseBody.testRunId);
+      }
+    language: text/javascript
+order: 3000

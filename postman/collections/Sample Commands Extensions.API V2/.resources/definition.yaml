@@ -1,0 +1,9 @@
+$kind: collection
+description: |-
+  PaytestAPI (Extensions REST API V2) sample commands, grouped by extension.
+
+  Set ApiUrl to the Extensions API V2 base URL without a trailing slash (for example http://localhost:8000/ExtensionApi/V2).
+  The samples use the extension IDs Robot-1, Mux-1, CtlMux-1, Mag-1 and Probe-1 as targets. Change them to the IDs in your environment.xml.
+  Command reference: https://docs.paytesthub.cloud. See README.md in the repository for details.
+variables:
+  ApiUrl: http://localhost:8000/ExtensionApi/V2

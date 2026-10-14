@@ -1,0 +1,20 @@
+$kind: http-request
+description: |-
+  Step 4: ends the test case. Extensions run their cleanup (for example, robot motors off).
+url: "{{ApiUrl}}/TestCleanup"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: ""
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status test\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });"
+    language: text/javascript
+settings: {}
+order: 4000

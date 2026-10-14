@@ -1,0 +1,14 @@
+$kind: collection
+description: |-
+  PaytestHub Test Runs API: start test cases and test sets on a PaytestHub agent, poll their status, read the results and abort runs.
+
+  Authentication: create an API token in PaytestHub under Administration -> API Access and set it as BEARER_TOKEN (local value only, never commit it).
+  Copy the test case, test set, agent and environment IDs from the PaytestHub URLs. See README.md in the repository for details.
+variables:
+  API_URL: https://paytesthub.cloud/api/app
+  BEARER_TOKEN: ""
+  TEST_CASE_ID: ""
+  TEST_SET_ID: ""
+  AGENT_ID: ""
+  ENVIRONMENT_ID: ""
+  TEST_RUN_ID: ""

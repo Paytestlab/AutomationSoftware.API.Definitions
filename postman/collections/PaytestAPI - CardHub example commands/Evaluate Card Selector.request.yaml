@@ -1,0 +1,17 @@
+$kind: http-request
+description: |-
+  Returns the multiplexers and slots whose cards match the given card selector.
+
+  InterfaceType (Contact or Contactless) is required. All other fields are optional filters: Multiplexer, CardSlot, Labels, Brand, AID, PAN, CardholderName, IssuerCountryCode, CurrencyCode, PreferredLanguage, ApplicationLabel, PANSequenceNumber, Expired, Protocol (T0 or T1) and WaitTimeoutInSeconds.
+url: "{{ApiBaseUrl}}cardhub/evaluate"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "InterfaceType": "Contact",
+      "Labels": ["MCARD"],
+      "Expired": false
+    }
+settings: {}
+order: 10000

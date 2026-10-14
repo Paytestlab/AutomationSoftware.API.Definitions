@@ -1,0 +1,22 @@
+$kind: http-request
+description: |-
+  Sets the labels of one slot (SlotIndex) of the multiplexer in MultiplexerId. Labels belong to the slot, not the card, and can be used to select cards (Probe extension: select --label, or Evaluate Card Selector).
+url: "{{ApiBaseUrl}}cardhub/update-slot"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"slot\" : {\r
+
+    \        \"MultiplexerId\" : \"{{MultiplexerId}}\",\r
+
+    \        \"SlotIndex\" : 2\r
+
+    \    },\r
+
+    \    \"labels\" : [\"MCARD\"]\r
+
+    }"
+settings: {}
+order: 2000

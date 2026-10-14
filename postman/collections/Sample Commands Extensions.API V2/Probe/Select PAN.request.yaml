@@ -1,0 +1,42 @@
+$kind: http-request
+description: |-
+  Candidate selection: Probe-1 selects the first available card with PAN 5413330089604111.
+url: "{{ApiUrl}}/ExecuteAutomation"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"target\": \"Probe-1\",\r
+
+    \  \"AutomationCommand\": \r
+
+    \  \t{\r
+
+    \  \t\t\"Command\" : \"select --pan 5413330089604111\",\r
+
+    \        \"Format\" : \"cli\"\r
+
+    \  \t}\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status test\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Validate Result\", function () {\r
+
+      \    var response = pm.response.json();\r
+
+      \    pm.expect(response.result.code).to.eql(0);\r
+
+      });"
+    language: text/javascript
+settings: {}
+order: 6000

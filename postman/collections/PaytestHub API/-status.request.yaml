@@ -1,0 +1,26 @@
+$kind: http-request
+name: /status
+description: |-
+  Returns the current status of the test run in TEST_RUN_ID: Queued, Executing, Executed, Failed, Error or Cancelled.
+
+  Poll every 5-10 seconds until a final state (Executed, Failed, Error, Cancelled) is reached.
+  Works with both token scopes ("Execute / Abort" and "Get status only").
+url: "{{API_URL}}/test-runs-api/status?id={{TEST_RUN_ID}}"
+method: GET
+headers:
+  Accept: application/json
+  X-Requested-With: XMLHttpRequest
+queryParams:
+  id: "{{TEST_RUN_ID}}"
+auth:
+  type: bearer
+  credentials:
+    token: "{{BEARER_TOKEN}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+    language: text/javascript
+order: 4000

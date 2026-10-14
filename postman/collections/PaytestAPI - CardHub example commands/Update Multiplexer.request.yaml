@@ -1,0 +1,20 @@
+$kind: http-request
+description: |-
+  Updates the name, MAC address and target (IP address) of the registered multiplexer in MultiplexerId.
+url: "{{ApiBaseUrl}}cardhub/multiplexer"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"Id\": \"{{MultiplexerId}}\",\r
+
+    \    \"MacAddress\": \"1407E00012B1\",\r
+
+    \    \"Target\": \"10.1.1.73\",\r
+
+    \    \"Name\":\"Beta\"\r
+
+    }"
+settings: {}
+order: 8000

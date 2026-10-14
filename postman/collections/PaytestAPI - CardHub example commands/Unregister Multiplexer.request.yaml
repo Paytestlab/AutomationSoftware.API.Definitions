@@ -1,0 +1,10 @@
+$kind: http-request
+description: |-
+  Removes the multiplexer in MultiplexerId from the card library. The body is the multiplexer ID as a JSON string.
+url: "{{ApiBaseUrl}}cardhub/multiplexer"
+method: DELETE
+body:
+  type: json
+  content: "\"{{MultiplexerId}}\""
+settings: {}
+order: 9000

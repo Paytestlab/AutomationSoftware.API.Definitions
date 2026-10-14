@@ -1,0 +1,10 @@
+$kind: http-request
+description: |-
+  Reads the cards in all slots of the multiplexer in MultiplexerId and returns the multiplexer with its slots and card data. The body is the multiplexer ID as a JSON string.
+url: "{{ApiBaseUrl}}cardhub/scan"
+method: POST
+body:
+  type: json
+  content: "\"{{MultiplexerId}}\""
+settings: {}
+order: 4000

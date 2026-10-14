@@ -1,0 +1,20 @@
+$kind: http-request
+description: |-
+  Starts a test case for Probe-1. Call this before the ExecuteAutomation requests in this folder.
+url: "{{ApiUrl}}/TestInitialize"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "Targets": ["Probe-1"]
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status test", function () {
+          pm.response.to.have.status(200);
+      });
+    language: text/javascript
+settings: {}
+order: 1000

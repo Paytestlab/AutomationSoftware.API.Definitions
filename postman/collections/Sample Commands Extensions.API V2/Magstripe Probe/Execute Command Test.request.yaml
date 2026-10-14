@@ -1,0 +1,46 @@
+$kind: http-request
+description: |-
+  Loads track data into Mag-1 with the trackset action, without swiping. Replace the track values with the track data of your own card.
+
+  Sent with ExecuteTest, which runs initialize, the command(s) and cleanup in one call (billed as one test case).
+url: "{{ApiUrl}}/ExecuteTest"
+method: POST
+body:
+  type: json
+  content: "[{\r
+
+    \  \"target\": \"Mag-1\",\r
+
+    \  \"AutomationCommands\": [\r
+
+    \    {\r
+
+    \      \"Version\": \"text.v1\",\r
+
+    \      \"Command\": \"execute: {\\\"action\\\": \\\"trackset\\\", \\\"track1\\\":\\\"\\\",\\\"track2\\\":\\\"1407E0000810\\\",\\\"track3\\\":\\\"\\\"}\" \r
+
+    \    }\r
+
+    \  ]\r
+
+    }]"
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status test\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });\r
+
+      \r
+
+      pm.test(\"Validate Result\", function () {\r
+
+      \    var response = pm.response.json();\r
+
+      \    pm.expect(response.result.code).to.eql(0);\r
+
+      });"
+    language: text/javascript
+settings: {}
+order: 2000

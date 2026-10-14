@@ -1,0 +1,17 @@
+$kind: http-request
+description: |-
+  Ends the test case started by Test Initialize.
+url: "{{ApiUrl}}/TestCleanup"
+method: POST
+body:
+  type: json
+  content: "{}"
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status test", function () {
+          pm.response.to.have.status(200);
+      });
+    language: text/javascript
+settings: {}
+order: 7000
