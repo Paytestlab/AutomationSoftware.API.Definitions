@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Candidate selection with several filters: Probe-1 selects the first available card that matches all of them (multiplexer, PAN, label, expiry, protocol, interface, language, issuer country and PAN sequence number).
 url: "{{ApiUrl}}/ExecuteAutomation"
 method: POST
 body:
@@ -11,7 +13,7 @@ body:
 
     \  \t{\r
 
-    \  \t\t\"Command\" : \"select --mux Sierra263 --pan 5413330089604111 --label Mastercard --expired false --protocol T0 --interface contactless --language en --issuercountry USA --pansequence 1 --issuercountry USA\",\r
+    \  \t\t\"Command\" : \"select --mux Sierra263 --pan 5413330089604111 --label Mastercard --expired false --protocol T0 --interface contactless --language en --issuercountry USA --pansequence 1\",\r
 
     \        \"Format\" : \"cli\"\r
 

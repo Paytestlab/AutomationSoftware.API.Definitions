@@ -1,11 +1,13 @@
 $kind: http-request
+description: |-
+  Reads the card in one slot (SlotIndex) of the multiplexer in MultiplexerId.
 url: "{{ApiBaseUrl}}cardhub/scan-slot"
 method: POST
 body:
   type: json
   content: "{\r
 
-    \    \"MultiplexerId\" : {{MultiplexerId}},\r
+    \    \"MultiplexerId\" : \"{{MultiplexerId}}\",\r
 
     \    \"SlotIndex\" : 2\r
 

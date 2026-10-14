@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Step 3: in the same test, the contact multiplexer Mux-1 selects card port 1. Shows that one test can drive several extensions.
 url: "{{ApiUrl}}/ExecuteSteps"
 method: POST
 body:

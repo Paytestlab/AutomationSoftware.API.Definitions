@@ -1,4 +1,8 @@
 $kind: http-request
+description: |-
+  Selects port 1 on the contactless multiplexer CtlMux-1 (command version text.v1). Use SELECT PORT <n> for other ports.
+
+  Sent with ExecuteTest, which runs initialize, the command(s) and cleanup in one call (billed as one test case).
 url: "{{ApiUrl}}/ExecuteTest"
 method: POST
 body:

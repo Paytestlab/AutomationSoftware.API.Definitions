@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Releases the card slot currently used by Probe-1 so the card is available to other tests again.
 url: "{{ApiUrl}}/ExecuteAutomation"
 method: POST
 body:

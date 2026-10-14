@@ -1,4 +1,8 @@
 $kind: http-request
+description: |-
+  Selects card port 1 on the contact multiplexer Mux-1 (command version text.v1). Ports SELECT PORT 1 to SELECT PORT 16 are supported.
+
+  Sent with ExecuteTest, which runs initialize, the command(s) and cleanup in one call (billed as one test case).
 url: "{{ApiUrl}}/ExecuteTest"
 method: POST
 body:

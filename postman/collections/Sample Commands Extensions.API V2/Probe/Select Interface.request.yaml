@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Direct selection of slot 4 of multiplexer Sierra263, overriding the probe's default interface with contactless.
 url: "{{ApiUrl}}/ExecuteAutomation"
 method: POST
 body:

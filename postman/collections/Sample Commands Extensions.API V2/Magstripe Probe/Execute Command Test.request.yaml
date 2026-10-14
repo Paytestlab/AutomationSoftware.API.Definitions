@@ -1,4 +1,8 @@
 $kind: http-request
+description: |-
+  Loads track data into Mag-1 with the trackset action, without swiping. Replace the track values with the track data of your own card.
+
+  Sent with ExecuteTest, which runs initialize, the command(s) and cleanup in one call (billed as one test case).
 url: "{{ApiUrl}}/ExecuteTest"
 method: POST
 body:

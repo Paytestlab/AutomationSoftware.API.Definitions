@@ -1,4 +1,8 @@
 $kind: http-request
+description: |-
+  Robot-1 moves to its home position, and the card arm inserts and ejects the card probe.
+
+  Sent with ExecuteTest, which runs initialize, the command(s) and cleanup in one call (billed as one test case).
 url: "{{ApiUrl}}/ExecuteTest"
 method: POST
 body:

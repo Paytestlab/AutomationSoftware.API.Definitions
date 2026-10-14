@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Step 1 of a test whose lifetime you manage yourself: starts a test case on the first environment. Must be called before ExecuteSteps.
 url: "{{ApiUrl}}/TestInitialize"
 method: POST
 headers:

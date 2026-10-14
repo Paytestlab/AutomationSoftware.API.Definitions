@@ -1,0 +1,6 @@
+$kind: http-request
+description: Starts a synchronization of the magstripe card library. The request has no body.
+url: "{{ApiBaseUrl}}cardhub/sync-magstripe-library"
+method: POST
+settings: {}
+order: 11000

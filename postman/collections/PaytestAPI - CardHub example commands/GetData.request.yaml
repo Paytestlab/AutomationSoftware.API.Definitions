@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Returns all registered multiplexers with their status (Online, Offline, Error) and their slots, including slot status (Empty, Idle, Reserved, Error), slot labels and the data of the inserted cards.
 url: "{{ApiBaseUrl}}cardhub/"
 method: GET
 settings: {}

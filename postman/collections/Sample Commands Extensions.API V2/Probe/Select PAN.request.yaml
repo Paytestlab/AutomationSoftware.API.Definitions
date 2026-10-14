@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Candidate selection: Probe-1 selects the first available card with PAN 5413330089604111.
 url: "{{ApiUrl}}/ExecuteAutomation"
 method: POST
 body:

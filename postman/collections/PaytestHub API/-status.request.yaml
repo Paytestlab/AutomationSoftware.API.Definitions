@@ -1,19 +1,14 @@
 $kind: http-request
 name: /status
-description: "Generated from cURL: curl -X 'GET' \\\r
+description: |-
+  Returns the current status of the test run in TEST_RUN_ID: Queued, Executing, Executed, Failed, Error or Cancelled.
 
-  \  'https://qa.paytesthub.cloud/api/app/agent/id?agentName=PTLNKRRO' \\\r
-
-  \  -H 'accept: text/plain' \\\r
-
-  \  -H 'RequestVerificationToken: CfDJ8FdC4gv_dEVFkZwy1GHiAKhtjs0F7aIJk3f9ZndIfYU6OtJ-If1kdETn66cNSx5VFpVHMbBhlfF2_xluX064pvbdWDvpKQzX-8wrVh_zHrEw2iKIPb71sOmMDLy9rI_KHak4T58H_se6REKCI_Al7lDij1Wtf6LM76Mr7q9KhdRv8JY-DahWZJvhYnzzMypA1Q' \\\r
-
-  \  -H 'X-Requested-With: XMLHttpRequest'"
+  Poll every 5-10 seconds until a final state (Executed, Failed, Error, Cancelled) is reached.
+  Works with both token scopes ("Execute / Abort" and "Get status only").
 url: "{{API_URL}}/test-runs-api/status?id={{TEST_RUN_ID}}"
 method: GET
 headers:
-  accept: text/plain
-  RequestVerificationToken: CfDJ8FdC4gv_dEVFkZwy1GHiAKhtjs0F7aIJk3f9ZndIfYU6OtJ-If1kdETn66cNSx5VFpVHMbBhlfF2_xluX064pvbdWDvpKQzX-8wrVh_zHrEw2iKIPb71sOmMDLy9rI_KHak4T58H_se6REKCI_Al7lDij1Wtf6LM76Mr7q9KhdRv8JY-DahWZJvhYnzzMypA1Q
+  Accept: application/json
   X-Requested-With: XMLHttpRequest
 queryParams:
   id: "{{TEST_RUN_ID}}"
@@ -21,4 +16,11 @@ auth:
   type: bearer
   credentials:
     token: "{{BEARER_TOKEN}}"
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+    language: text/javascript
 order: 4000

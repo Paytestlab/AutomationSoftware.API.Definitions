@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Step 3: ends the test case. Extensions run their cleanup (for example, robot motors off).
 url: "{{ApiUrl}}/TestCleanup"
 method: POST
 headers:

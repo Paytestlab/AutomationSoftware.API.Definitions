@@ -1,43 +1,31 @@
 $kind: http-request
 name: /abort-test-run
-description: "Generated from cURL: curl -X 'GET' \\\r
+description: |-
+  Aborts the queued or running test run in TEST_RUN_ID.
 
-  \  'https://qa.paytesthub.cloud/api/app/agent/id?agentName=PTLNKRRO' \\\r
-
-  \  -H 'accept: text/plain' \\\r
-
-  \  -H 'RequestVerificationToken: CfDJ8FdC4gv_dEVFkZwy1GHiAKhtjs0F7aIJk3f9ZndIfYU6OtJ-If1kdETn66cNSx5VFpVHMbBhlfF2_xluX064pvbdWDvpKQzX-8wrVh_zHrEw2iKIPb71sOmMDLy9rI_KHak4T58H_se6REKCI_Al7lDij1Wtf6LM76Mr7q9KhdRv8JY-DahWZJvhYnzzMypA1Q' \\\r
-
-  \  -H 'X-Requested-With: XMLHttpRequest'"
+  Requires an API token with scope "Execute / Abort". The abort is asynchronous: /status can return Executing for a few seconds before it switches to Cancelled.
+  Returns 409 Conflict if the run has already finished.
 url: "{{API_URL}}/test-runs-api/abort-test-run"
 method: PUT
 headers:
-  accept: text/plain
-  RequestVerificationToken: CfDJ8FdC4gv_dEVFkZwy1GHiAKhtjs0F7aIJk3f9ZndIfYU6OtJ-If1kdETn66cNSx5VFpVHMbBhlfF2_xluX064pvbdWDvpKQzX-8wrVh_zHrEw2iKIPb71sOmMDLy9rI_KHak4T58H_se6REKCI_Al7lDij1Wtf6LM76Mr7q9KhdRv8JY-DahWZJvhYnzzMypA1Q
+  Accept: application/json
+  Content-Type: application/json
   X-Requested-With: XMLHttpRequest
 body:
   type: json
-  content: "{\r
-
-    \  \"id\": \"{{TEST_RUN_ID}}\"\r
-
-    }"
+  content: |-
+    {
+      "id": "{{TEST_RUN_ID}}"
+    }
 auth:
   type: bearer
   credentials:
     token: "{{BEARER_TOKEN}}"
 scripts:
   - type: afterResponse
-    code: "const responseBody = pm.response.json();\r
-
-      \r
-
-      pm.test(\"Status code is 200\", function () {\r
-
-      \    pm.response.to.have.status(200);\r
-
-      \    pm.collectionVariables.set(\"TEST_RUN_ID\", responseBody.testRunId);\r
-
-      });"
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
     language: text/javascript
 order: 6000

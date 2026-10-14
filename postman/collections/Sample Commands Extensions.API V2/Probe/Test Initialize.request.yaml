@@ -1,40 +1,20 @@
 $kind: http-request
-url: "{{ApiUrl}}/ExecuteAutomation"
+description: |-
+  Starts a test case for Probe-1. Call this before the ExecuteAutomation requests in this folder.
+url: "{{ApiUrl}}/TestInitialize"
 method: POST
 body:
   type: json
-  content: "{\r
-
-    \  \"target\": \"Probe-1\",\r
-
-    \  \"AutomationCommand\": \r
-
-    \  \t{\r
-
-    \  \t\t\"Command\" : \"release\",\r
-
-    \        \"Format\" : \"cli\"\r
-
-    \  \t}\r
-
-    }"
+  content: |-
+    {
+      "Targets": ["Probe-1"]
+    }
 scripts:
   - type: afterResponse
-    code: "pm.test(\"Status test\", function () {\r
-
-      \    pm.response.to.have.status(200);\r
-
-      });\r
-
-      \r
-
-      pm.test(\"Validate Result\", function () {\r
-
-      \    var response = pm.response.json();\r
-
-      \    pm.expect(response.result.code).to.eql(0);\r
-
-      });"
+    code: |-
+      pm.test("Status test", function () {
+          pm.response.to.have.status(200);
+      });
     language: text/javascript
 settings: {}
 order: 1000

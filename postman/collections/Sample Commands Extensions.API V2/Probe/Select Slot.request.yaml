@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Direct (force) selection: Probe-1 selects slot 4 of the multiplexer named Sierra263. The card library tries to activate the slot even if it is empty or in error, unless another process is using it.
 url: "{{ApiUrl}}/ExecuteAutomation"
 method: POST
 body:

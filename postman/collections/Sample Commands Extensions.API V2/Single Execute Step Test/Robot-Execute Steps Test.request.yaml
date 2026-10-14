@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Step 2: inside the initialized test, Robot-1 inserts the card probe, enters PIN 1234, presses OK and ejects the card probe, all in one command.
 url: "{{ApiUrl}}/ExecuteSteps"
 method: POST
 body:
@@ -11,7 +13,7 @@ body:
 
     \  \t{\r
 
-    \  \t\t\"Command\" : \"Insert;1;2;3;4;Ok;Eject\"\r
+    \  \t\t\"Command\" : \"Insert;1;2;3;4;OK;Eject\"\r
 
     \  \t}\r
 

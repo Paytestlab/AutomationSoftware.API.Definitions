@@ -1,4 +1,6 @@
 $kind: http-request
+description: |-
+  Candidate selection: Probe-1 selects the first available card in a slot labelled Mastercard.
 url: "{{ApiUrl}}/ExecuteAutomation"
 method: POST
 body:
